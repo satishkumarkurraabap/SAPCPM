@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "Myepmsql",
+            "database": "${workspaceFolder:CAPEPM}/db.sqlite"
+        }
+    ]
+}
