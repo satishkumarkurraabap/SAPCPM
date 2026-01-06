@@ -5,7 +5,7 @@ http://localhost:4004/odata/v4/CatalogService
 http://localhost:4004/odata/v4/CatalogService/$metadata
 
 ###Get all Employee data
-http://localhost:4004/odata/v4/CatalogService/Employeeset
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet
 
 ###POST - Create new Employee
 POST http://localhost:4004/odata/v4/CatalogService/Employeeset
@@ -13,7 +13,7 @@ Content-Type: application/json
 
 {
     
-      "nameFirst": "Vijaya",
+      "nameFirst": "Reyan",
       "nameMiddle": null,
       "nameLast": "Kurra",
       "nameInitials": null,
@@ -29,10 +29,19 @@ Content-Type: application/json
       "bankName": "My Bank of Antioch"
 }
 
-### Get data
-http://localhost:4004/odata/v4/CatalogService/Employeeset/d348a24e-e6c7-4230-bc2d-a66558c95302
+### Get to read the single employee data
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/e2002f0f-403d-4839-8a9e-e3b461243c62
+
+### Patch to update employee data
+PATCH  http://localhost:4004/odata/v4/CatalogService/EmployeeSet/e2002f0f-403d-4839-8a9e-e3b461243c62
+Content-Type: application/json
+
+{
+       "salaryAmount": 1000000
+}
+
 ###Pagination 
-http://localhost:4004/odata/v4/CatalogService/Employeeset?$top=2&$skip=2
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$top=2&$skip=2
 
 ###Get all PO
 http://localhost:4004/odata/v4/CatalogService/POs
@@ -54,5 +63,17 @@ http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC280
 ###Get all Business
 http://localhost:4004/odata/v4/CatalogService/BusinessPartner
 
+###Getting Product data from CDS View
+GET http://localhost:4004/odata/v4/MyService/ProductOrdersSet/74867AD200E41EDBA5D8B06B26EB4052
 
+###Get metadata
+GET http://localhost:4004/odata/v4/MyService/$metadata
 
+###Get the lazy loading -- 
+GET http://localhost:4004/odata/v4/MyService/ProductOrdersSet/74867AD200E41EDBA5D8B06B26EB4052?$expand=PO_ORDERS
+
+###Complete custom entity which has strcture from DB but logic by our own handling 
+http://localhost:4004/odata/v4/MyService/ReadEmployeeSrv/02BD2137-0890-1EEA-A6C2-BB55C19787FB
+
+###GEt all Pos using adpater proxy V2
+http://localhost:4004/v2/odata/v4/CatalogService/POs

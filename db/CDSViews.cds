@@ -74,7 +74,7 @@ context CDSViews {
           SUPPLIER_GUID.COMPANY_NAME as![SupplierName],
           //Exposed association like ABAP which will lazy load orders of given product 
           //at run time  on demand
-          PO_ORDERS as![ProductOrders]
+          PO_ORDERS 
      }
 
      }
