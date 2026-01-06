@@ -225,7 +225,47 @@ annotate service.POItems with @(
             },
         ],
     }
+);
+
+//Linking the value help with PO
+annotate service.POs with {
+    PARTNER_GUID@(
+        Common.Text: PARTNER_GUID.COMPANY_NAME,
+        Common.ValueList.entity: service.BusinessPartner
+    );
+};
+
+//Linking the value help with PO 
+//Linking the help with PO
+annotate service.POItems with  {
+    PRODUCT_GUID@(
+        Common.Text: PRODUCT_GUID.DESCRIPTION,
+        Common.ValueList.entity: service.ProductSet
+    );
+};
+//We are crate a vlaue help the SE11
+@cds.odata.valuelist
+annotate service.BusinessPartner with @(
+    UI.Identification:[
+        {
+            $Type : 'UI.DataField',
+            Value : COMPANY_NAME,
+        }
+    ]    
+);
+
+// create value help for 
+@cds.odata.valuelist
+annotate  service.ProductSet with @(
+    UI.Identification:[
+        {
+            $Type : 'UI.DataField',
+            Value : DESCRIPTION,
+        }
+    ]
+
+);
 
 
-)
+
 

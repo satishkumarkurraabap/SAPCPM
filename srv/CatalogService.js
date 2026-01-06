@@ -45,5 +45,9 @@ module.exports = cds.service.impl(async function ()
     }     
     });
 
-
+ this.on('getOrderStatus', async(req,res) => {
+    return {
+        "OVERALL_STATTUS" : "N"
+    }
+ })
 });
